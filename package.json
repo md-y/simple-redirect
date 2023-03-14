@@ -1,0 +1,39 @@
+{
+  "name": "simple-oauth-redirect",
+  "version": "0.0.1",
+  "description": "Provides simple functions for initiating and handling local OAuth redirects for both Node and Browser",
+  "scripts": {
+    "build": "tsc --outDir ./dist/esm && tsc --outDir ./dist/cjs --module CommonJS --declaration false"
+  },
+  "keywords": [
+    "oauth",
+    "redirect",
+    "openid"
+  ],
+  "author": "md-y",
+  "license": "MIT",
+  "optionalDependencies": {
+    "open": "^8.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.2"
+  },
+  "exports": {
+    "./web": {
+      "default": {
+        "default": "./dist/esm/web.js",
+        "import": "./dist/esm/web.js",
+        "require": "./dist/cjs/web.js",
+        "types": "./dist/esm/web.d.ts"
+      }
+    },
+    "./node": {
+      "default": {
+        "default": "./dist/cjs/node.js",
+        "import": "./dist/esm/node.js",
+        "require": "./dist/cjs/node.js",
+        "types": "./dist/esm/node.d.ts"
+      }
+    }
+  }
+}

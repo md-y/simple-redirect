@@ -10,8 +10,9 @@ declare module 'simple-oauth-redirect/web' {
     const redirect: (targetUrl: string | URL, callbackUri: string, timeout?: number) => Promise<URL>;
     /**
      * Checks if this page is an OAUTH callback, and if it is, it will broadcast a message back to the redirect page and close this page.
+     * @param callbackParams (Optional) If any of these parameters are present in the page's url, it will be considered a valid callback URL and will return
      */
-    const checkForCallback: () => void;
+    export declare const checkForCallback: (callbackParams?: string[]) => void;
 }
 
 declare module 'simple-oauth-redirect/node' {

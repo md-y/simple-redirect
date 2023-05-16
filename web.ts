@@ -44,10 +44,11 @@ export const redirect = (targetUrl: string | URL, callbackUri: string, timeout =
 
 /**
  * Checks if this page is an OAUTH callback, and if it is, it will broadcast a message back to the redirect page and close this page.
+ * @param callbackParams (Optional) If any of these parameters are present in the page's url, it will be considered a valid callback URL and will return
  */
-export const checkForCallback = (): void => {
+export const checkForCallback = (callbackParams = ['code', 'token', 'id_token', 'redirect']): void => {
     const locationUrl = new URL(window.location.href);
-    if (['code', 'token', 'id_token', 'redirect'].some((param) => locationUrl.searchParams.has(param))) {
+    if (callbackParams.some((param) => locationUrl.searchParams.has(param))) {
         const channel = new BroadcastChannel(CHANNEL);
         const url = window.location.href;
         channel.addEventListener('message', async (ev: MessageEvent<BroadcastMessage>) => {

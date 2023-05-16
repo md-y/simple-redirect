@@ -1,10 +1,10 @@
 {
   "name": "simple-oauth-redirect",
   "types": "./types.d.ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Provides simple functions for initiating and handling local OAuth redirects for both Node and Browser",
   "scripts": {
-    "build": "tsc --outDir ./dist/esm && tsc --outDir ./dist/cjs",
+    "build": "tsc --outDir ./dist/esm && tsc --outDir ./dist/cjs --module CommonJS",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -14,6 +14,10 @@
   ],
   "author": "md-y",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/md-y/simple-redirect/issues"
+  },
+  "homepage": "https://github.com/md-y/simple-redirect",
   "optionalDependencies": {
     "open": "^8.4.2"
   },

@@ -22,7 +22,7 @@ const targetUrl = 'http://example.com/oauth';
 const callbackUrl = 'http://localhost:8000/callback';
 
 SimpleOAuth.redirect(targetUrl, callbackUrl).then((url) => {
-    console.log('OAuth callback url with codes:', url);
+  console.log('OAuth callback url with codes:', url);
 });
 ```
 
@@ -41,35 +41,35 @@ Import the browser implementation with ```simple-oauth-redirect/web```. The brow
 *index.svelte*
 ```svelte
 <script lang="ts">
-	import { redirect } from 'simple-oauth-redirect/web';
+  import { redirect } from 'simple-oauth-redirect/web';
 
-	let responseUrl: string;
+  let responseUrl: string;
 
-	async function authButton() {
-		const targetUrl = 'http://example.com/oauth';
-		const callbackUrl = `${window.location.origin}/callback`;
-		const res = await redirect(targetUrl, callbackUrl);
-		responseUrl = res.href;
-	}
+  async function authButton() {
+    const targetUrl = 'http://example.com/oauth';
+    const callbackUrl = `${window.location.origin}/callback`;
+    const res = await redirect(targetUrl, callbackUrl);
+    responseUrl = res.href;
+  }
 </script>
 
 {#if !responseUrl}
-	<button on:click={() => authButton()}>Authorize</button>
+  <button on:click={() => authButton()}>Authorize</button>
 {:else}
-	<h1>Received URL:</h1>
-	<p>{responseUrl}</p>
+  <h1>Received URL:</h1>
+  <p>{responseUrl}</p>
 {/if}
 ```
 
 *callback.svelte*
 ```svelte
 <script>
-	import { onMount } from 'svelte';
-	import { checkForCallback } from 'simple-oauth-redirect/web';
+  import { onMount } from 'svelte';
+  import { checkForCallback } from 'simple-oauth-redirect/web';
 
-	onMount(() => {
-		checkForCallback();
-	});
+  onMount(() => {
+    checkForCallback();
+  });
 </script>
 ```
 <br>
@@ -81,18 +81,18 @@ Import the browser implementation with ```simple-oauth-redirect/web```. The brow
 ```html
 <html lang="en">
 <script type="module">
-    import { redirect } from "https://www.unpkg.com/simple-oauth-redirect@latest/dist/esm/web.js";
-    document.getElementById('auth-button').addEventListener('click', () => {
-        const targetUrl = 'http://example.com/oauth';
-        const callbackUrl = `${window.location.origin}/callback.html`;
+  import { redirect } from "https://www.unpkg.com/simple-oauth-redirect@latest/dist/esm/web.js";
+  document.getElementById('auth-button').addEventListener('click', () => {
+    const targetUrl = 'http://example.com/oauth';
+    const callbackUrl = `${window.location.origin}/callback.html`;
 
-        redirect(targetUrl, callbackUrl).then((url) => {
-            console.log('OAuth callback url with codes:', url);
-        });
+    redirect(targetUrl, callbackUrl).then((url) => {
+      console.log('OAuth callback url with codes:', url);
     });
+  });
 </script>
 <body>
-    <button id="auth-button">Authorize</button>
+  <button id="auth-button">Authorize</button>
 </body>
 </html>
 ```
@@ -100,8 +100,8 @@ Import the browser implementation with ```simple-oauth-redirect/web```. The brow
 ```html
 <html lang="en">
 <script type="module">
-    import { checkForCallback } from "https://www.unpkg.com/simple-oauth-redirect@latest/dist/esm/web.js";
-    checkForCallback();
+  import { checkForCallback } from "https://www.unpkg.com/simple-oauth-redirect@latest/dist/esm/web.js";
+  checkForCallback();
 </script>
 </html>
 ```

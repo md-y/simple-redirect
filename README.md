@@ -10,7 +10,7 @@ npm i simple-oauth-redirect
 
 ---
 
-#### How to use in Node
+### How to use in Node
 
 Import the Node implementation with ```simple-oauth-redirect/node```. The function will create a simple http server that binds to the callback URL for the duration of the promise.
 
@@ -28,7 +28,7 @@ SimpleOAuth.redirect(targetUrl, callbackUrl).then((url) => {
 
 ---
 
-#### How to use in browser
+### How to use in browser
 Import the browser implementation with ```simple-oauth-redirect/web```. The browser implementation also uses the [Broadcast Channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API).
 
 

@@ -4,6 +4,8 @@ A simple package for navigating to an OAuth endpoint, receiving the callback, an
 
 Supports both Node and browsers, both ESM and CommonJS, and TypeScript.
 
+[![Version](https://img.shields.io/npm/v/simple-oauth-redirect.svg?style=flat)](https://www.npmjs.com/package/simple-oauth-redirect)
+
 ```bash
 npm i simple-oauth-redirect 
 ```

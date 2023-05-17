@@ -20,8 +20,8 @@ Import the Node implementation with ```simple-oauth-redirect/node```. The functi
 const SimpleOAuth = require('simple-oauth-redirect/node');
 // import { redirect } from "simple-oauth-redirect/node";
 
-const targetUrl = 'http://example.com/oauth';
 const callbackUrl = 'http://localhost:8000/callback';
+const targetUrl = `http://example.com/oauth?redirect_uri=${encodeURIComponent(callbackUrl)}`;
 
 SimpleOAuth.redirect(targetUrl, callbackUrl).then((url) => {
   console.log('OAuth callback url with codes:', url);
@@ -48,8 +48,8 @@ Import the browser implementation with ```simple-oauth-redirect/web```. The brow
   let responseUrl: string;
 
   async function authButton() {
-    const targetUrl = 'http://example.com/oauth';
     const callbackUrl = `${window.location.origin}/callback`;
+    const targetUrl = `http://example.com/oauth?redirect_uri=${encodeURIComponent(callbackUrl)}`;
     const res = await redirect(targetUrl, callbackUrl);
     responseUrl = res.href;
   }
@@ -85,8 +85,8 @@ Import the browser implementation with ```simple-oauth-redirect/web```. The brow
 <script type="module">
   import { redirect } from "https://www.unpkg.com/simple-oauth-redirect@latest/dist/esm/web.js";
   document.getElementById('auth-button').addEventListener('click', () => {
-    const targetUrl = 'http://example.com/oauth';
     const callbackUrl = `${window.location.origin}/callback.html`;
+    const targetUrl = `http://example.com/oauth?redirect_uri=${encodeURIComponent(callbackUrl)}`;
 
     redirect(targetUrl, callbackUrl).then((url) => {
       console.log('OAuth callback url with codes:', url);

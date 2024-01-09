@@ -1,2 +1,8 @@
 dist
 node_modules
+web.mjs
+web.cjs
+node.mjs
+node.cjs
+*.map
+chunk-*
